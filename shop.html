@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couture Collective - Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="C:\Users\USER\Documents\303\imaages\image.png.png" alt="Couture Collective Logo" id="logo">
+        <h1>Shop Couture Collective</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="add to cart.html">Cart</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <!-- Cart Button -->
+        <a href="add_to_cart.html" id="cartButton" class="cart-button">Cart</a>
+    </header>
+    
+    <main>
+        <!-- Product Listing -->
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\s-l1600 (1).jpg" alt="Product 1">
+                <h3> adidas Samba OG Clay Strata</h3>
+                <button class="add-to-cart" data-product-id="1">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\images.jpg" alt="Product 2">
+                <h3>Women's baggy trousers</h3>
+                <p>Price: ksh1250.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="2">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\Parachute Baggy Cargo Trouser Pants.jpg" alt="Product 3">
+                <h3>Men's Baggy Trousers</h3>
+                <p>Price: ksh1500.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="3">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\images (3).jpg" alt="Product 4">
+                <h3>Men's Baggy Trousers</h3>
+                <p>Price: ksh1100.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="4">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\images (4).jpg" alt="Product 5">
+                <h3>Women's Baggy Pants</h3>
+                <p>Price: Ksh1300</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="5">Add to Cart</button>
+            </div>
+            
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\images (2).jpg" alt="Product 6">
+                <h3>Women's Baggy Trousers</h3>
+                <p>Price: ksh1700.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="6">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\images (1).jpg" alt="Product 7">
+                <h3>Men's Baggy Trousers</h3>
+                <p>Price: ksh1000.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="7">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\jordan12s01.jpg" alt="Product 8">
+                <h3>Jordan 1 Retro low OG SP Travis Scott Dark Mocha</h3>
+                <p>Price: ksh2500.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="8">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\123.webp" alt="Product 9">
+                <h3>Air Jordan 1 Low SP Travis Scott Black Phantom</h3>
+                <p>Price: ksh3499.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="9">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="C:\Users\USER\Documents\303\imaages\dunk-low-womens-shoes.png" alt="Product 10">
+                <h3>Nike dunks Low</h3>
+                <p>Price: ksh4999.00</p>
+                <button>Add to Cart</button>
+                <button class="add-to-cart" data-product-id="10">Add to Cart</button>
+            </div>
+            <!-- Add more product divs as needed -->
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Couture Collective</p>
+    </footer>
+
+    <!-- JavaScript for adding event listener to "Add to Cart" buttons -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all "Add to Cart" buttons
+            var addToCartButtons = document.querySelectorAll(".add to cart");
+
+            // Add event listener to each button
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    // Retrieve product information from the button's parent div
+                    var productId = productDiv.getAttribute("data-product-id");
+                    var productName = productDiv.querySelector("h3").innerText;
+                    var productDescription = productDiv.querySelector("p").innerText;
+                    var productImageSrc = productDiv.querySelector("img").getAttribute("src");
+
+                    // Create object representing the product
+                    var product = {
+                        id: productId,
+                        name: productName,
+                        description: productDescription,
+                        imageSrc: productImageSrc
+                    };
+
+                    // Store the product in localStorage (or you can use cookies/sessions)
+                    var cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    cart.push(product);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
